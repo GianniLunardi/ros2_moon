@@ -56,4 +56,10 @@ install(
     DESTINATION lib/${PROJECT_NAME}
 )
 
+if(BUILD_TESTING)
+    find_package(ament_cmake_gtest REQUIRED)
+    ament_add_gtest(
+        unit_testing
+        src/unit_tests.cpp
+    )
 ament_package()
