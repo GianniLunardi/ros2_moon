@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with: 
           path: workspace
       
@@ -23,3 +23,8 @@ jobs:
       
       - name: Build the workspace
         uses: ichiro-its/ros2-actions/build@v1.0.0
+
+      - name: Test the workspace
+        run:
+          source install/setup.bash
+          colcon test --return-code-on-tesy-failure 
